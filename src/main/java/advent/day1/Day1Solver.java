@@ -6,9 +6,9 @@ import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-final class Solver {
+final class Day1Solver {
     Solution solve() {
-        try (Scanner scanner = new Scanner(Objects.requireNonNull(Solver.class.getResourceAsStream("input.txt")))) {
+        try (Scanner scanner = new Scanner(Objects.requireNonNull(Day1Solver.class.getResourceAsStream("input.txt")))) {
             ElfScanner elfScanner = new ElfScanner(scanner);
 
             long maxCalories = 0;
@@ -55,6 +55,6 @@ final class Solver {
     }
 
     public static void main(String[] args) {
-        new Solver().solve();
+        new Day1Solver().solve();
     }
 }

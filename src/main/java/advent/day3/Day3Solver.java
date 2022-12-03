@@ -5,9 +5,9 @@ import advent.Solution;
 import java.util.Objects;
 import java.util.Scanner;
 
-final class Solver {
+final class Day3Solver {
     Solution solve() {
-        try (Scanner scanner = new Scanner(Objects.requireNonNull(Solver.class.getResourceAsStream("input.txt")))) {
+        try (Scanner scanner = new Scanner(Objects.requireNonNull(Day3Solver.class.getResourceAsStream("input.txt")))) {
             RucksackScanner rucksackScanner = new RucksackScanner(scanner);
             ElfGroupScanner elfGroupScanner = new ElfGroupScanner(rucksackScanner);
 
@@ -30,6 +30,6 @@ final class Solver {
     }
 
     public static void main(String[] args) {
-        new Solver().solve();
+        new Day3Solver().solve();
     }
 }

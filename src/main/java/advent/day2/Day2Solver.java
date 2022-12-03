@@ -5,9 +5,9 @@ import advent.Solution;
 import java.util.Objects;
 import java.util.Scanner;
 
-final class Solver {
+final class Day2Solver {
     Solution solve() {
-        try (Scanner scanner = new Scanner(Objects.requireNonNull(Solver.class.getResourceAsStream("input.txt")))) {
+        try (Scanner scanner = new Scanner(Objects.requireNonNull(Day2Solver.class.getResourceAsStream("input.txt")))) {
             RoundScanner roundScanner = new RoundScanner(scanner);
 
             long totalScorePart1 = 0;
@@ -28,6 +28,6 @@ final class Solver {
     }
 
     public static void main(String[] args) {
-        new Solver().solve();
+        new Day2Solver().solve();
     }
 }
