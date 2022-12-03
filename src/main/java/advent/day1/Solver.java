@@ -1,5 +1,7 @@
 package advent.day1;
 
+import advent.Solution;
+
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Scanner;

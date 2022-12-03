@@ -1,5 +1,6 @@
 package advent.day1;
 
+import advent.Solution;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
