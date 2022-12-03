@@ -1,7 +1,6 @@
 package advent.day1;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 final class Elf implements Comparable<Elf> {
     private final List<Snack> snacks;

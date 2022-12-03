@@ -3,7 +3,6 @@ package advent.day1;
 import java.util.Objects;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 final class Solver {
     Solution solve() {
