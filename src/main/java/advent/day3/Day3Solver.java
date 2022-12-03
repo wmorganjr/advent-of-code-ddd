@@ -1,32 +1,30 @@
 package advent.day3;
 
+import advent.ScanningSolver;
 import advent.Solution;
 
-import java.util.Objects;
 import java.util.Scanner;
 
-final class Day3Solver {
-    Solution solve() {
-        try (Scanner scanner = new Scanner(Objects.requireNonNull(Day3Solver.class.getResourceAsStream("input.txt")))) {
-            RucksackScanner rucksackScanner = new RucksackScanner(scanner);
-            ElfGroupScanner elfGroupScanner = new ElfGroupScanner(rucksackScanner);
+final class Day3Solver extends ScanningSolver {
 
-            long prioritySum = 0;
-            long badgeSum = 0;
+    @Override
+    protected Solution solve(final Scanner scanner) {
+        RucksackScanner rucksackScanner = new RucksackScanner(scanner);
+        ElfGroupScanner elfGroupScanner = new ElfGroupScanner(rucksackScanner);
 
-            while (elfGroupScanner.hasNextElfGroup()) {
-                ElfGroup elfGroup = elfGroupScanner.nextElfGroup();
-                prioritySum += elfGroup.sumRucksackPriorities();
-                badgeSum += elfGroup.badgePriority();
-            }
+        long prioritySum = 0;
+        long badgeSum = 0;
 
-            System.out.println(prioritySum);
-            System.out.println(badgeSum);
-
-            return new Solution(prioritySum, badgeSum);
+        while (elfGroupScanner.hasNextElfGroup()) {
+            ElfGroup elfGroup = elfGroupScanner.nextElfGroup();
+            prioritySum += elfGroup.sumRucksackPriorities();
+            badgeSum += elfGroup.badgePriority();
         }
 
+        System.out.println(prioritySum);
+        System.out.println(badgeSum);
 
+        return new Solution(prioritySum, badgeSum);
     }
 
     public static void main(String[] args) {
