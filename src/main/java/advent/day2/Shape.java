@@ -3,9 +3,7 @@ package advent.day2;
 import java.util.regex.Pattern;
 
 enum Shape {
-    ROCK,
-    PAPER,
-    SCISSORS;
+    ROCK, PAPER, SCISSORS;
 
     static Shape parseYours(final String word) {
         assert Pattern.matches("^[ABC]$", word);
@@ -37,15 +35,19 @@ enum Shape {
         };
     }
 
-    boolean defeats(Shape o) {
+    boolean defeats(final Shape o) {
         return switch (this) {
-            case ROCK -> o.equals(SCISSORS);
-            case PAPER -> o.equals(ROCK);
-            case SCISSORS -> o.equals(PAPER);
+            case ROCK -> o == SCISSORS;
+            case PAPER -> o == ROCK;
+            case SCISSORS -> o == PAPER;
         };
     }
 
     Shape shapeLeadingToOutcome(final Outcome desiredOutcome) {
+        // Each call to values() instantiates a new array, but there are only
+        // nine possible paths through this method (3 outcomes x 3 shapes).
+        // If we need to optimize performance, this code could introduce a
+        // memoizing cache, or even hard-coded logic.
         for (Shape o : values()) {
             if (new Round(o, this).myOutcome().equals(desiredOutcome)) {
                 return o;
