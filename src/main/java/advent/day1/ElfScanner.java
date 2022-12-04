@@ -1,9 +1,10 @@
 package advent.day1;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-final class ElfScanner {
+final class ElfScanner implements Iterator<Elf> {
     private final Scanner scanner;
 
     ElfScanner(final Scanner scanner) {
@@ -28,5 +29,15 @@ final class ElfScanner {
 
     boolean hasNextElf() {
         return scanner.hasNextLine();
+    }
+
+    @Override
+    public boolean hasNext() {
+        return hasNextElf();
+    }
+
+    @Override
+    public Elf next() {
+        return nextElf();
     }
 }

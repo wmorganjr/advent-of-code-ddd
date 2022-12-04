@@ -1,8 +1,9 @@
 package advent.day3;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
-final class RucksackScanner {
+final class RucksackScanner implements Iterator<Rucksack> {
     private final Scanner scanner;
 
     RucksackScanner(final Scanner scanner) {
@@ -18,5 +19,15 @@ final class RucksackScanner {
 
     boolean hasNextRucksack() {
         return scanner.hasNextLine();
+    }
+
+    @Override
+    public boolean hasNext() {
+        return hasNextRucksack();
+    }
+
+    @Override
+    public Rucksack next() {
+        return nextRucksack();
     }
 }

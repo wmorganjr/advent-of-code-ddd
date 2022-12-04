@@ -1,6 +1,8 @@
 package advent.day3;
 
-final class ElfGroupScanner {
+import java.util.Iterator;
+
+final class ElfGroupScanner implements Iterator<ElfGroup> {
     private final RucksackScanner rucksackScanner;
 
     ElfGroupScanner(final RucksackScanner rucksackScanner) {
@@ -17,5 +19,15 @@ final class ElfGroupScanner {
 
     boolean hasNextElfGroup() {
         return rucksackScanner.hasNextRucksack();
+    }
+
+    @Override
+    public boolean hasNext() {
+        return hasNextElfGroup();
+    }
+
+    @Override
+    public ElfGroup next() {
+        return nextElfGroup();
     }
 }
