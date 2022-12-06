@@ -18,6 +18,9 @@ final class Ship {
     }
 
     void moveCrates(final Step step) {
-        craneMode.moveCrates(step.count(), step.source(stacks), step.destination(stacks));
+        Stack source = stacks[step.src() - 1];
+        Stack destination = stacks[step.dest() - 1];
+
+        craneMode.moveCrates(step.count(), source, destination);
     }
 }

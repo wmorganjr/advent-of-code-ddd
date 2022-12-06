@@ -10,12 +10,4 @@ record Step(int count, int src, int dest) {
                 Integer.parseInt(matcher.group(3))
         );
     }
-
-    Stack source(Stack[] stacks) {
-        return stacks[src - 1];
-    }
-
-    Stack destination(Stack[] stacks) {
-        return stacks[dest - 1];
-    }
 }
