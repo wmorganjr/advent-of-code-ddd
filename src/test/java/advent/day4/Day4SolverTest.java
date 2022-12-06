@@ -12,7 +12,7 @@ class Day4SolverTest {
         Solution solution = new Day4Solver().solve();
 
         assertEquals(464, solution.answer1());
-        assertEquals(770, solution.answer1());
+        assertEquals(770, solution.answer2());
     }
 
 }
