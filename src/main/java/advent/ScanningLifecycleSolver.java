@@ -11,13 +11,14 @@ public abstract class ScanningLifecycleSolver<T> implements Solver {
 
     @Override
     public Solution solve() {
-        InputStream inputStream = getClass().getResourceAsStream("input.txt");
-        try (Scanner inputScanner = new Scanner(Objects.requireNonNull(inputStream))) {
-            Iterator<T> domainObjectScanner = domainObjectScanner(inputScanner);
+        start();
 
-            start();
+        try (Scanner inputScanner = newScanner()) {
+            Iterator<T> domainObjectScanner = domainObjectScanner(inputScanner);
             domainObjectScanner.forEachRemaining(this::next);
-            end();
+        }
+
+        end();
 
             return new Solution(part1Solution, part2Solution);
         }
@@ -43,5 +44,10 @@ public abstract class ScanningLifecycleSolver<T> implements Solver {
 
     protected void println(Object x) {
         System.out.println(x);
+    }
+
+    protected Scanner newScanner() {
+        InputStream inputStream = getClass().getResourceAsStream("input.txt");
+        return new Scanner(Objects.requireNonNull(inputStream));
     }
 }
