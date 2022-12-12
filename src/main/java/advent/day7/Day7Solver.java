@@ -62,7 +62,7 @@ final class Day7Solver extends ScanningLifecycleSolver<TerminalOutputLine> {
     }
 
     public static void main(String[] args) {
-        new Day7Solver(null).solve();
+        new Day7Solver().solve();
     }
 
     @Override
