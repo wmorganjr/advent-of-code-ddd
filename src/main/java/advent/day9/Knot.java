@@ -19,8 +19,8 @@ final class Knot {
     }
 
     void moveToward(final Knot o) {
-        int dx = comparePositions(gridPosition.x(), o.gridPosition.x());
-        int dy = comparePositions(gridPosition.y(), o.gridPosition.y());
+        int dx = comparePositions(o.gridPosition.x(), gridPosition.x());
+        int dy = comparePositions(o.gridPosition.y(), gridPosition.y());
 
         gridPosition = new GridPosition(gridPosition.x() + dx, gridPosition.y() + dy);
     }
@@ -29,8 +29,13 @@ final class Knot {
         return gridPosition;
     }
 
-    private int comparePositions(final int a, final int b) {
-        return (int) Math.signum(Integer.compare(b, a));
+    private int comparePositions(final int x, final int y) {
+        // This is the same as the implementation of Integer.compare,
+        // but not the interface, where the method documentation only
+        // states that a positive (or negative) value will be returned,
+        // but not that the value will be 1 (or -1). We actually need
+        // the values to be -1, 0, or 1.
+        return (x < y) ? -1 : ((x == y) ? 0 : 1);
     }
 
     @Override
