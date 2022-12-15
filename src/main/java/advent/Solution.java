@@ -22,6 +22,34 @@ public final class Solution {
         this.answer2String = answer2String;
     }
 
+    public Solution(long answer1, String answer2String) {
+        this.answer1 = answer1;
+        this.answer2 = 0;
+        this.answer1String = "";
+        this.answer2String = answer2String;
+    }
+
+    public Solution(String answer1String, long answer2) {
+        this.answer1String = answer1String;
+        this.answer2 = answer2;
+        this.answer1 = 0;
+        this.answer2String = "";
+    }
+
+    // This package-private constructor should only be called in situations
+    // where the user indicates that the problem, somehow, has both a long and
+    // string solution for the same part. A support class faced with such user
+    // behavior has the option, in that situation, of clobbering the user's
+    // first answer, or else throwing an exception. With this constructor we
+    // offer the support class a third option: to return both answers and
+    // leave it up to the caller to choose an accessor.
+    Solution(long answer1, String answer1String, long answer2, String answer2String) {
+        this.answer1 = answer1;
+        this.answer2 = answer2;
+        this.answer1String = answer1String;
+        this.answer2String = answer2String;
+    }
+
     public long answer1() {
         return answer1;
     }
