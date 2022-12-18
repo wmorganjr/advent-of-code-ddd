@@ -38,7 +38,7 @@ public class SolverSupport {
         updateModeString();
     }
 
-    protected void setInput(String inputFileName) {
+    public void setInput(String inputFileName) {
         this.inputFileName = inputFileName;
     }
 
